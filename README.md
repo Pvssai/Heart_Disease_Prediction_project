@@ -384,10 +384,6 @@ The Flask application is deployed on Render.
 
 **RENDER_LIVE_LINK**
 
-Replace `https://heart-disease-prediction-project-oln0.onrender.com` with your actual Render URL after deployment.
-
-Example:
-
 ```text
 https://heart-disease-prediction-project-oln0.onrender.com
 ```
