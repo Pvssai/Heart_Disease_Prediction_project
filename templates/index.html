@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ViharaTech | Heart Disease Prediction</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #f8fafc;
+
+            color: #222;
+        }
+
+
+        /* ==================================================
+           MAIN CONTAINER
+        ================================================== */
+
+        .container {
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            background: white;
+
+            overflow: hidden;
+        }
+
+
+        /* ==================================================
+           TOP HEADER
+        ================================================== */
+
+        .header {
+
+            position: relative;
+
+            height: 285px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827 0%,
+                    #312e81 48%,
+                    #7c3aed 75%,
+                    #be185d 100%
+                );
+        }
+
+
+        /* Decorative circles */
+
+        .header::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+
+            height: 220px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.06);
+
+            top: -130px;
+
+            left: -60px;
+        }
+
+
+        .header::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+
+            height: 260px;
+
+            border-radius: 50%;
+
+            background: rgba(244,114,182,0.13);
+
+            bottom: -170px;
+
+            right: -60px;
+        }
+
+
+        /* ==================================================
+           LOGO
+        ================================================== */
+
+        .logo {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 145px;
+
+            height: 62px;
+
+            object-fit: contain;
+
+            margin-bottom: 5px;
+
+            background: white;
+
+            border-radius: 9px;
+
+            padding: 5px 12px;
+
+            box-shadow:
+                0 7px 20px
+                rgba(0,0,0,0.16);
+        }
+
+
+        /* ==================================================
+           TAGLINE
+        ================================================== */
+
+        .tagline {
+
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .tagline span {
+
+            margin: 0 7px;
+
+            color: #f9a8d4;
+        }
+
+
+        /* ==================================================
+           HEART
+        ================================================== */
+.title-with-heart {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    font-size: 34px;
+    font-weight: 700;
+    color: white;
+}
+
+
+.heart {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(5px);
+
+    font-size: 30px;
+
+    animation: heartbeat 1.6s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.10);
+    }
+}
+
+        /* ==================================================
+           TITLE
+        ================================================== */
+
+        .header h1 {
+
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 29px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.2px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .header p {
+
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 12px;
+
+            color: #e5e7eb;
+        }
+
+
+        /* ==================================================
+           FORM SECTION
+        ================================================== */
+
+        .form-container {
+
+            width: 94%;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 30px 0 25px;
+        }
+
+
+        /* ==================================================
+           SECTION TITLE
+        ================================================== */
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title h2 {
+
+            color: #7e1235;
+
+            font-size: 21px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .section-title p {
+
+            color: #777;
+
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           FORM GRID
+        ================================================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            column-gap: 18px;
+
+            row-gap: 16px;
+        }
+
+
+        /* ==================================================
+           INPUT GROUP
+        ================================================== */
+
+        .input-group {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .input-group label {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #4c1230;
+
+            margin-bottom: 5px;
+        }
+
+
+        .input-group input,
+
+        .input-group select {
+
+            height: 34px;
+
+            width: 100%;
+
+            border: 1px solid #f3a5b5;
+
+            border-radius: 8px;
+
+            padding: 0 10px;
+
+            background: #fff;
+
+            color: #333;
+
+            outline: none;
+
+            font-size: 11px;
+
+            transition: all 0.25s;
+        }
+
+
+        .input-group input::placeholder {
+
+            color: #999;
+        }
+
+
+        .input-group input:hover,
+
+        .input-group select:hover {
+
+            border-color: #c24168;
+        }
+
+
+        .input-group input:focus,
+
+        .input-group select:focus {
+
+            border-color: #7e1235;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(126,18,53,0.07);
+        }
+
+
+        .hint {
+
+            color: #999;
+
+            font-size: 8px;
+
+            margin-top: 4px;
+        }
+
+
+        /* ==================================================
+           BUTTON
+        ================================================== */
+
+        .button-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 25px;
+        }
+
+
+        .predict-btn {
+
+            min-width: 195px;
+
+            height: 39px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7e1235,
+                    #be185d
+                );
+
+            box-shadow:
+                0 8px 18px
+                rgba(126,18,53,0.22);
+
+            transition: 0.25s;
+        }
+
+
+        .predict-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 11px 22px
+                rgba(126,18,53,0.30);
+        }
+
+
+        /* ==================================================
+           RESULT
+        ================================================== */
+
+        .result {
+
+            width: 100%;
+
+            margin-top: 22px;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .success {
+
+            background: #ecfdf5;
+
+            color: #047857;
+
+            border: 1px solid #a7f3d0;
+        }
+
+
+        .danger {
+
+            background: #fff1f2;
+
+            color: #be123c;
+
+            border: 1px solid #fda4af;
+        }
+
+
+        .error {
+
+            background: #fff7ed;
+
+            color: #c2410c;
+
+            border: 1px solid #fdba74;
+        }
+
+
+        /* ==================================================
+           INFO BOX
+        ================================================== */
+
+        .info-box {
+
+            margin-top: 20px;
+
+            padding: 13px 15px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff7f9,
+                    #fff1f5
+                );
+
+            border-left: 3px solid #be185d;
+
+            color: #704052;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+        }
+
+
+        .info-box strong {
+
+            color: #8e1236;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        .footer {
+
+            margin-top: 0;
+
+            padding: 18px;
+
+            text-align: center;
+
+            background: #faf5f7;
+
+            border-top: 1px solid #f0dfe4;
+
+            color: #8b747c;
+
+            font-size: 9px;
+
+            line-height: 1.8;
+        }
+
+
+        .footer strong {
+
+            color: #be185d;
+
+            font-size: 12px;
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 700px) {
+
+            .header {
+
+                height: 310px;
+
+                padding: 20px;
+            }
+
+
+            .header h1 {
+
+                font-size: 24px;
+            }
+
+
+            .header p {
+
+                font-size: 10px;
+            }
+
+
+            .logo {
+
+                width: 135px;
+
+                height: 58px;
+            }
+
+
+            .form-container {
+
+                width: 90%;
+
+                padding-top: 25px;
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .predict-btn {
+
+                width: 100%;
+
+                max-width: 250px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <div class="header">
+
+
+        <!-- ViharaTech Logo -->
+
+        <img
+            src="{{ url_for('static',
+            filename='viharatech_logo.png') }}"
+            alt="ViharaTech Logo"
+            class="logo"
+        >
+
+
+        <!-- Tagline -->
+
+        <div class="tagline">
+
+            LEARN
+            <span>•</span>
+            INTERN
+            <span>•</span>
+            GET PLACED
+
+        </div>
+
+
+        <!-- Heart -->
+        <h1 class="title-with-heart">
+
+            <span class="heart">❤️</span>
+
+            Heart Disease Prediction
+
+        </h1>
+
+
+
+
+        <p>
+
+            Machine Learning Based Heart Disease
+            Prediction System
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         FORM
+    ================================================== -->
+
+    <div class="form-container">
+
+
+        <div class="section-title">
+
+            <h2>
+
+                🩺 Patient Information
+
+            </h2>
+
+
+            <p>
+
+                Enter the required details to
+                generate a prediction
+
+            </p>
+
+        </div>
+
+
+
+        <form
+            action="/predict"
+            method="POST"
+        >
+
+
+            <div class="form-grid">
+
+
+                <!-- AGE -->
+
+                <div class="input-group">
+
+                    <label for="age">
+
+                        👤 Age
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="Enter age"
+                        min="1"
+                        max="120"
+                        required
+                    >
+
+
+                    <span class="hint">
+
+                        Age of the patient in years
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- SEX -->
+
+                <div class="input-group">
+
+                    <label for="sex">
+
+                        ⚥ Sex
+
+                    </label>
+
+
+                    <select
+                        id="sex"
+                        name="sex"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select sex
+
+                        </option>
+
+
+                        <option value="1">
+
+                            Male (1)
+
+                        </option>
+
+
+                        <option value="0">
+
+                            Female (0)
+
+                        </option>
+
+                    </select>
+
+
+                    <span class="hint">
+
+                        Male = 1, Female = 0
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- CP -->
+
+                <div class="input-group">
+
+                    <label for="cp">
+
+                        ❤️ Chest Pain Type (CP)
+
+                    </label>
+
+
+                    <select
+                        id="cp"
+                        name="cp"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select chest pain type
+
+                        </option>
+
+
+                        <option value="0">
+
+                            0 - Typical Angina
+
+                        </option>
+
+
+                        <option value="1">
+
+                            1 - Atypical Angina
+
+                        </option>
+
+
+                        <option value="2">
+
+                            2 - Non-Anginal Pain
+
+                        </option>
+
+
+                        <option value="3">
+
+                            3 - Asymptomatic
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- THALACH -->
+
+                <div class="input-group">
+
+                    <label for="thalach">
+
+                        💓 Maximum Heart Rate (Thalach)
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="thalach"
+                        name="thalach"
+                        placeholder="Example: 150"
+                        min="50"
+                        max="220"
+                        required
+                    >
+
+
+                    <span class="hint">
+
+                        Maximum heart rate achieved
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- OLDPEAK -->
+
+                <div class="input-group">
+
+                    <label for="oldpeak">
+
+                        📈 ST-Depression (Oldpeak)
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="oldpeak"
+                        name="oldpeak"
+                        placeholder="Example: 1.2"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                        required
+                    >
+
+
+                    <span class="hint">
+
+                        ST depression value
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- SLOPE -->
+
+                <div class="input-group">
+
+                    <label for="slope">
+
+                        📊 Slope
+
+                    </label>
+
+
+                    <select
+                        id="slope"
+                        name="slope"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select slope
+
+                        </option>
+
+
+                        <option value="0">
+
+                            0 - Upsloping
+
+                        </option>
+
+
+                        <option value="1">
+
+                            1 - Flat
+
+                        </option>
+
+
+                        <option value="2">
+
+                            2 - Downsloping
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- THAL -->
+
+                <div class="input-group">
+
+                    <label for="thal">
+
+                        🧬 Thal
+
+                    </label>
+
+
+                    <select
+                        id="thal"
+                        name="thal"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select thal value
+
+                        </option>
+
+
+                        <option value="0">0</option>
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        <option value="3">3</option>
+
+                    </select>
+
+
+                    <span class="hint">
+
+                        Use your dataset encoding
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 BUTTON
+            ================================================== -->
+
+            <div class="button-container">
+
+
+                <button
+                    type="submit"
+                    class="predict-btn"
+                >
+
+                    ❤️ &nbsp; Predict Heart Disease
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- ==================================================
+             RESULT
+        ================================================== -->
+
+        {% if prediction %}
+
+
+        <div class="result {{ result_type }}">
+
+
+            {% if result_type == "danger" %}
+
+                ❤️ &nbsp; {{ prediction }}
+
+            {% elif result_type == "success" %}
+
+                💚 &nbsp; {{ prediction }}
+
+            {% else %}
+
+                ⚠️ &nbsp; {{ prediction }}
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endif %}
+
+
+
+        <!-- ==================================================
+             INFORMATION
+        ================================================== -->
+
+        <div class="info-box">
+
+            <strong>
+                ℹ️ About this project
+            </strong>
+
+            <br>
+
+            This application uses a trained Machine
+            Learning model to predict the presence
+            of heart disease based on seven input
+            parameters.
+
+            <br>
+
+            <strong>Note:</strong>
+
+            This project is intended for educational
+            and demonstration purposes only and is
+            not a medical diagnosis tool.
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <div class="footer">
+
+    <span class="developer-name">
+        Project Developed by
+        <strong> :-👨‍💻 Pinjala. Venkata Siva Sai</strong>
+    </span>
+
+</div>
+
+</div>
+
+
+</body>
+
+</html>
