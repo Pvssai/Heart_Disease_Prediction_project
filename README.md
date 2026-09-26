@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/32679323/README.md)
-# ❤️ ViharaTech Heart Disease Prediction
+# ❤️ Heart Disease Prediction
 
 A Machine Learning based **Heart Disease Prediction Web Application** developed using **Python, OOP concepts, Scikit-learn, Flask, HTML/CSS**, and deployed on **Render**.
 
